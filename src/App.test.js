@@ -1,8 +1,11 @@
+// src/App.test.js
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders home page title', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const titleElement = screen.getByText((content, element) =>
+    element.tagName.toLowerCase() === 'h2' && content.includes('Bienvenida a')
+  );
+  expect(titleElement).toBeInTheDocument();
 });

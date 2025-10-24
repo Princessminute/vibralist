@@ -5,9 +5,8 @@ import Api from "./components/Api";
 import Home from "./components/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Heart, Music2, Smile, Frown, Trash2, Edit2 } from "lucide-react";
-
 
 const renderEmocion = (emocion) => {
   switch (emocion) {
@@ -43,7 +42,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -97,7 +96,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
