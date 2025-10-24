@@ -289,13 +289,13 @@ body {
 // Responsividad móviles
 // ----------------------
 @media (max-width: 768px) {
-  .App { padding: 1.5rem; }
+  .App { padding: 1rem; }
   .titulo { font-size: 1.4rem; }
   .album-cover { width: 50px; height: 50px; }
-  .song-table { font-size: 0.9rem; }
-  .song-table th, .song-table td { padding: 0.5rem; }
-  .song-form { flex-direction: column; }
+  .song-table { font-size: 0.85rem; min-width: 100%; }
+  .song-table th, .song-table td { padding: 0.4rem; }
+  .song-form { flex-direction: column; gap: 0.5rem; }
   .song-form input, .song-form select, .song-form button { width: 100%; }
-  .navbar { flex-direction: column; gap: 0.8rem; }
-  .navbar .nav-links { flex-wrap: wrap; justify-content: center; }
+  .navbar { flex-direction: column; gap: 0.5rem; }
+  .navbar .nav-links { justify-content: center; gap: 0.3rem; }
 }
