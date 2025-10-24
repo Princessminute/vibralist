@@ -9,7 +9,7 @@ const Api = ({ onLoad }) => {
       .catch((err) => console.error("Error loading songs:", err));
   }, [onLoad]);
 
-  return null; // No renderiza nada
+  return null;
 };
 
 export default Api;

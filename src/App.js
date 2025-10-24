@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import { Heart, Music2, Smile, Frown, Trash2, Edit2 } from "lucide-react";
 
+// Función para mostrar ícono según emoción
 const renderEmocion = (emocion) => {
   switch (emocion) {
     case "feliz":
@@ -24,26 +25,45 @@ const renderEmocion = (emocion) => {
 function App() {
   const [songs, setSongs] = useState([]);
 
+  // Función para cargar canciones desde Api.js
   const handleApiLoad = (data) => setSongs(data);
+
+  // Agregar canción desde el formulario
   const addSong = (song) => setSongs([...songs, song]);
+
+  // Eliminar canción por índice
   const removeSong = (index) => setSongs(songs.filter((_, i) => i !== index));
 
+  // Editar canción
   const editSong = (index) => {
     const songToEdit = songs[index];
     const newTitulo = prompt("Nuevo título:", songToEdit.titulo);
     const newArtista = prompt("Nuevo artista:", songToEdit.artista);
-    const newEmocion = prompt("Nueva emoción (feliz, tranquilo, triste):", songToEdit.emocion);
+    const newEmocion = prompt(
+      "Nueva emoción (feliz, tranquilo, triste):",
+      songToEdit.emocion
+    );
 
     if (newTitulo && newArtista && newEmocion) {
       const updated = [...songs];
-      updated[index] = { ...updated[index], titulo: newTitulo, artista: newArtista, emocion: newEmocion };
+      updated[index] = {
+        ...updated[index],
+        titulo: newTitulo,
+        artista: newArtista,
+        emocion: newEmocion,
+      };
       setSongs(updated);
     }
   };
 
   return (
     <>
+      {/* Navbar siempre visible */}
       <Navbar />
+
+      {/* Carga las canciones una vez al iniciar la app */}
+      <Api onLoad={handleApiLoad} />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -51,10 +71,16 @@ function App() {
           element={
             <div className="App">
               <h1 className="titulo">
-                VibraList <Heart color="#F38BA0" size={28} style={{ verticalAlign: "middle" }} />
+                VibraList{" "}
+                <Heart
+                  color="#F38BA0"
+                  size={28}
+                  style={{ verticalAlign: "middle" }}
+                />
               </h1>
+
               <Form handleSubmit={addSong} />
-              <Api onLoad={handleApiLoad} />
+
               <div className="table-container">
                 <table className="song-table">
                   <thead>
@@ -67,27 +93,42 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {songs.length === 0 && (
+                    {songs.length === 0 ? (
                       <tr>
-                        <td colSpan="5" className="empty">Cargando canciones...</td>
-                      </tr>
-                    )}
-                    {songs.map((song, index) => (
-                      <tr key={index}>
-                        <td><img src={song.portada} alt={song.titulo} className="album-cover" /></td>
-                        <td>{song.titulo}</td>
-                        <td>{song.artista}</td>
-                        <td>{renderEmocion(song.emocion)}</td>
-                        <td>
-                          <button className="btn-edit" onClick={() => editSong(index)}>
-                            <Edit2 size={18} />
-                          </button>
-                          <button className="btn-delete" onClick={() => removeSong(index)}>
-                            <Trash2 size={18} />
-                          </button>
+                        <td colSpan="5" className="empty">
+                          Cargando canciones...
                         </td>
                       </tr>
-                    ))}
+                    ) : (
+                      songs.map((song, index) => (
+                        <tr key={index}>
+                          <td>
+                            <img
+                              src={song.portada}
+                              alt={song.titulo}
+                              className="album-cover"
+                            />
+                          </td>
+                          <td>{song.titulo}</td>
+                          <td>{song.artista}</td>
+                          <td>{renderEmocion(song.emocion)}</td>
+                          <td>
+                            <button
+                              className="btn-edit"
+                              onClick={() => editSong(index)}
+                            >
+                              <Edit2 size={18} />
+                            </button>
+                            <button
+                              className="btn-delete"
+                              onClick={() => removeSong(index)}
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
                   </tbody>
                 </table>
               </div>

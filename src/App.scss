@@ -7,7 +7,7 @@ $rosa-claro: #FFBCBC;
 $rosa-fuerte: #F38BA0;
 
 // ----------------------
-// Fuente general y body
+// Fuente y body
 // ----------------------
 body {
   margin: 0;
@@ -87,7 +87,7 @@ body {
 }
 
 // ----------------------
-// Contenedor de tabla con scroll
+// Tabla de canciones
 // ----------------------
 .table-container {
   max-height: 400px;
@@ -95,14 +95,12 @@ body {
   margin-top: 1rem;
 }
 
-// ----------------------
-// Tabla de canciones
-// ----------------------
 .song-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: auto;
   min-width: 500px;
+  font-size: 1rem;
 
   th, td {
     padding: 0.75rem;
@@ -114,7 +112,6 @@ body {
     position: sticky;
     top: 0;
     background-color: $rosa-claro;
-    color: #333;
     z-index: 5;
   }
 
@@ -131,10 +128,30 @@ body {
     position: relative;
     z-index: 1;
   }
+
+  .btn-delete, .btn-edit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-right: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+
+    svg {
+      color: $rosa-fuerte;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 // ----------------------
-// Portadas circulares tipo vinilo
+// Portadas tipo vinilo
 // ----------------------
 .album-cover {
   width: 70px;
@@ -150,74 +167,13 @@ body {
   }
 }
 
-// ----------------------
-// Animación giro vinilo
-// ----------------------
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 // ----------------------
-// Botones eliminar y editar
-// ----------------------
-.song-table .btn-delete,
-.song-table .btn-edit {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  margin-right: 4px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-
-  svg {
-    color: $rosa-fuerte;
-  }
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-// ----------------------
-// Responsividad
-// ----------------------
-@media (max-width: 768px) {
-  .App {
-    padding: 1.5rem;
-  }
-
-  .titulo {
-    font-size: 1.4rem;
-  }
-
-  .album-cover {
-    width: 50px;
-    height: 50px;
-  }
-
-  .song-table {
-    font-size: 0.9rem;
-
-    th, td {
-      padding: 0.5rem;
-    }
-  }
-
-  .song-form {
-    flex-direction: column;
-
-    input, select, button {
-      width: 100%;
-    }
-  }
-}
-
-// ----------------------
-// Navbar pastel superior
+// Navbar
 // ----------------------
 .navbar {
   background-color: $rosa-claro;
@@ -236,9 +192,7 @@ body {
     font-weight: 600;
     color: $rosa-fuerte;
 
-    .nav-title {
-      font-size: 1.1rem;
-    }
+    .nav-title { font-size: 1.1rem; }
   }
 
   .nav-links {
@@ -269,30 +223,28 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 0.8rem;
-
-    .nav-links {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-}
-
-.home-container {
+// ----------------------
+// Home y About
+// ----------------------
+.home-container, .about-container {
   max-width: 600px;
   margin: 3rem auto;
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #fff5f7, #ffeef5);
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1.2s ease-in-out;
 }
 
-.home-title {
+.home-container {
+  background: linear-gradient(135deg, #fff5f7, #ffeef5);
+}
+
+.about-container {
+  background: linear-gradient(135deg, #fdfbfb, #ffeef5);
+}
+
+.home-title, .about-title {
   font-size: 1.8rem;
   margin-bottom: 1rem;
   display: flex;
@@ -302,36 +254,22 @@ body {
   color: #333;
 }
 
-.home-text {
+.home-text, .about-text {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #555;
   margin-bottom: 1.5rem;
 }
 
-.brand {
-  color: #ff7eb9;
-  font-weight: bold;
-}
+.brand { color: #ff7eb9; font-weight: bold; }
+.icon { color: #ff7eb9; }
+.icon-inline { vertical-align: middle; margin-right: 0.3rem; }
+.heart { vertical-align: middle; transform: translateY(2px); }
+.home-banner { margin-top: 1rem; animation: fadeInUp 1s ease-in-out; }
 
-.icon {
-  color: #ff7eb9;
-}
-
-.icon-inline {
-  vertical-align: middle;
-  margin-right: 0.3rem;
-}
-
-.home-banner {
-  margin-top: 1rem;
-  animation: fadeInUp 1s ease-in-out;
-}
-
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
+// ----------------------
+// Animaciones
+// ----------------------
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.2); opacity: 0.8; }
@@ -347,65 +285,17 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-//------
-//------
-.about-container {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, #fdfbfb, #ffeef5);
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-.about-title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: #333;
-}
-
-.about-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-.icon {
-  color: #ff7eb9;
-}
-
-.icon-inline {
-  vertical-align: middle;
-  margin-right: 0.3rem;
-}
-
-.heart {
-  vertical-align: middle;
-  transform: translateY(2px);
-}
-
-.brand {
-  color: #ff7eb9;
-  font-weight: bold;
-}
-
-/* 💖 Animaciones compartidas con Home */
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+// ----------------------
+// Responsividad móviles
+// ----------------------
+@media (max-width: 768px) {
+  .App { padding: 1.5rem; }
+  .titulo { font-size: 1.4rem; }
+  .album-cover { width: 50px; height: 50px; }
+  .song-table { font-size: 0.9rem; }
+  .song-table th, .song-table td { padding: 0.5rem; }
+  .song-form { flex-direction: column; }
+  .song-form input, .song-form select, .song-form button { width: 100%; }
+  .navbar { flex-direction: column; gap: 0.8rem; }
+  .navbar .nav-links { flex-wrap: wrap; justify-content: center; }
 }
