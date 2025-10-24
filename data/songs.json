@@ -1,0 +1,7 @@
+[
+  { "titulo": "SUGAR POP", "artista": "SAJA BOYS", "portada": "./images/1.png", "emocion": "feliz" },
+  { "titulo": "BE SOMEDADY", "artista": "ALLIE", "portada": "./images/3.png", "emocion": "tranquilo" },
+  { "titulo": "TAKE DOWN", "artista": "TWICE", "portada": "./images/2.png", "emocion": "triste" },
+  { "titulo": "Happy", "artista": "Pharrell Williams", "portada": "./images/4.png", "emocion": "feliz" },
+  { "titulo": "Someone Like You", "artista": "Adele", "portada": "./images/5.png", "emocion": "triste" }
+]
