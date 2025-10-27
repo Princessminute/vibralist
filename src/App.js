@@ -30,13 +30,7 @@ function App() {
     const saved = localStorage.getItem("songs");
     return saved ? JSON.parse(saved) : []; // Si no hay nada, inicia vacío
     });
-
-    useEffect(() => {
-      localStorage.setItem("songs", JSON.stringify(songs));
-    }, [songs]);
-
     
-
   // Función para cargar canciones desde Api.js
   const handleApiLoad = (data) => {
     // Solo carga los datos del JSON si songs está vacío
