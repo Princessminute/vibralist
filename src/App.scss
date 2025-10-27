@@ -301,10 +301,55 @@ body {
   .navbar { flex-direction: column; gap: 0.5rem; }
   .navbar .nav-links { justify-content: center; gap: 0.3rem; }
 }
-
+// ----------------------
+// Responsividad móviles mejorada
+// ----------------------
 @media (max-width: 768px) {
+  // Contenedor principal
+  .App {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  // Título
+  .titulo {
+    font-size: 1.5rem;
+    word-break: break-word;
+  }
+
+  // Formulario
+  .song-form {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .song-form input,
+  .song-form select,
+  .song-form button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  // Navbar
+  .navbar {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .navbar .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  // Tabla → Cards
   .table-container {
-    max-height: none; // elimina límite para cards
+    max-height: none;
     overflow: visible;
   }
 
@@ -316,7 +361,7 @@ body {
   }
 
   .song-table thead {
-    display: none; // ocultamos el encabezado de tabla
+    display: none; // ocultamos encabezado
   }
 
   .song-table tr {
@@ -348,9 +393,30 @@ body {
     margin-top: 0.5rem;
   }
 
+  // Portadas
   .album-cover {
     width: 60px;
     height: 60px;
     margin-bottom: 0.5rem;
+  }
+
+  // Home y About
+  .home-container,
+  .about-container {
+    margin: 1.5rem 1rem;
+    padding: 1rem;
+  }
+
+  .home-title,
+  .about-title {
+    font-size: 1.4rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .home-text,
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.4;
   }
 }
