@@ -1,6 +1,8 @@
 // ----------------------
 // Paleta de colores pastel
 // ----------------------
+@use "sass:color";
+
 $celeste: #B5EAEA;
 $verde-claro: #EDF6E5;
 $rosa-claro: #FFBCBC;
@@ -81,7 +83,7 @@ body {
 
     &:hover {
       transform: scale(1.05);
-      background-color: darken($rosa-fuerte, 10%);
+      background-color: color.adjust($rosa-fuerte, $lightness: -10%);
     }
   }
 }
