@@ -301,9 +301,6 @@ body {
   .navbar { flex-direction: column; gap: 0.5rem; }
   .navbar .nav-links { justify-content: center; gap: 0.3rem; }
 }
-// ----------------------
-// Responsividad móviles mejorada
-// ----------------------
 @media (max-width: 768px) {
   // Contenedor principal
   .App {
@@ -311,6 +308,7 @@ body {
     width: 100%;
     border-radius: 1.5rem;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
   }
 
   // Título
@@ -347,7 +345,7 @@ body {
     gap: 0.5rem;
   }
 
-  // Tabla → Cards
+  // Tabla → Cards centradas
   .table-container {
     max-height: none;
     overflow: visible;
@@ -367,27 +365,32 @@ body {
   .song-table tr {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; // centramos contenido horizontalmente
+    text-align: center; // centramos texto
     background-color: $verde-claro;
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    word-wrap: break-word; // previene desbordamiento
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .song-table td {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; // apila portada, título, artista, emoción
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 0.3rem 0;
-    text-align: left;
   }
 
   .song-table td img {
     margin-bottom: 0.5rem;
-    align-self: center;
   }
 
   .song-table td:last-child {
+    flex-direction: row; // botones en fila
     justify-content: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
