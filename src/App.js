@@ -105,7 +105,7 @@ function App() {
                         <tr key={index}>
                           <td>
                             <img
-                              src={song.portada}
+                              src={`${process.env.PUBLIC_URL}${song.portada}`}
                               alt={song.titulo}
                               className="album-cover"
                             />
