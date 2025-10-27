@@ -302,86 +302,55 @@ body {
   .navbar .nav-links { justify-content: center; gap: 0.3rem; }
 }
 
-// ----------------------
-// Responsividad móviles mejorada
-// ----------------------
 @media (max-width: 768px) {
-  .App {
-    padding: 1rem;
-    width: 100%;
-    border-radius: 1.5rem;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .titulo {
-    font-size: 1.5rem;
-    word-break: break-word; // evita overflow en títulos largos
-  }
-
-  .album-cover {
-    width: 50px;
-    height: 50px;
+  .table-container {
+    max-height: none; // elimina límite para cards
+    overflow: visible;
   }
 
   .song-table {
-    font-size: 0.85rem;
-    min-width: 100%;
-    table-layout: fixed; // mejor redistribución en pantallas pequeñas
-  }
-
-  .song-table th, .song-table td {
-    padding: 0.5rem 0.3rem;
-    word-wrap: break-word;
-  }
-
-  .song-form {
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    align-items: stretch; // inputs y botones ocupan todo el ancho
-  }
-
-  .song-form input,
-  .song-form select,
-  .song-form button {
+    gap: 1rem;
     width: 100%;
-    font-size: 0.9rem;
   }
 
-  .navbar {
+  .song-table thead {
+    display: none; // ocultamos el encabezado de tabla
+  }
+
+  .song-table tr {
+    display: flex;
     flex-direction: column;
-    gap: 0.7rem;
-    padding: 0.7rem 1rem;
+    align-items: center;
+    background-color: $verde-claro;
     border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
-  .navbar .nav-links {
-    flex-wrap: wrap;
+  .song-table td {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.3rem 0;
+    text-align: left;
+  }
+
+  .song-table td img {
+    margin-bottom: 0.5rem;
+    align-self: center;
+  }
+
+  .song-table td:last-child {
     justify-content: center;
     gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
-  .table-container {
-    max-height: 300px; // menos altura en móvil
-    overflow-x: auto; // permite scroll horizontal si la tabla es muy ancha
-  }
-
-  // Ajuste de texto en Home y About
-  .home-container,
-  .about-container {
-    margin: 1.5rem 1rem;
-    padding: 1rem;
-  }
-
-  .home-title,
-  .about-title {
-    font-size: 1.4rem;
-    flex-direction: column; // título y íconos en columna
-    gap: 0.3rem;
-  }
-
-  .home-text,
-  .about-text {
-    font-size: 1rem;
-    line-height: 1.4;
+  .album-cover {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
   }
 }
