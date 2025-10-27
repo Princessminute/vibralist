@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/vibralist/static/css/main.71bab2c4.css",
+    "main.css": "/vibralist/static/css/main.d21f6847.css",
     "main.js": "/vibralist/static/js/main.cd598948.js",
     "static/js/453.54798bf2.chunk.js": "/vibralist/static/js/453.54798bf2.chunk.js",
     "index.html": "/vibralist/index.html",
-    "main.71bab2c4.css.map": "/vibralist/static/css/main.71bab2c4.css.map",
+    "main.d21f6847.css.map": "/vibralist/static/css/main.d21f6847.css.map",
     "main.cd598948.js.map": "/vibralist/static/js/main.cd598948.js.map",
     "453.54798bf2.chunk.js.map": "/vibralist/static/js/453.54798bf2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.71bab2c4.css",
+    "static/css/main.d21f6847.css",
     "static/js/main.cd598948.js"
   ]
 }
