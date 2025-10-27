@@ -1,5 +1,6 @@
 //App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import "./App.scss";
 import Form from "./components/Form";
 import Api from "./components/Api";
@@ -17,17 +18,33 @@ const renderEmocion = (emocion) => {
     case "tranquilo":
       return <Music2 color="#B5EAEA" size={22} />;
     case "triste":
-      return <Frown color="#F38BA0" size={22} />;
+      return <Frown color="#070203ff" size={22} />;
     default:
       return <Heart color="#EDF6E5" size={22} />;
   }
 };
 
 function App() {
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs] = useState(() => {
+  // Intenta cargar las canciones guardadas en localStorage
+    const saved = localStorage.getItem("songs");
+    return saved ? JSON.parse(saved) : []; // Si no hay nada, inicia vacío
+    });
+
+    useEffect(() => {
+      localStorage.setItem("songs", JSON.stringify(songs));
+    }, [songs]);
+
+    
 
   // Función para cargar canciones desde Api.js
-  const handleApiLoad = (data) => setSongs(data);
+  const handleApiLoad = (data) => {
+    // Solo carga los datos del JSON si songs está vacío
+    if (songs.length === 0) {
+      setSongs(data);
+    }
+  };
+
 
   // Agregar canción desde el formulario
   const addSong = (song) => setSongs([...songs, song]);
