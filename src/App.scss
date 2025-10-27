@@ -291,17 +291,7 @@ body {
 // Responsividad móviles
 // ----------------------
 @media (max-width: 768px) {
-  .App { padding: 1rem; }
-  .titulo { font-size: 1.4rem; }
-  .album-cover { width: 50px; height: 50px; }
-  .song-table { font-size: 0.85rem; min-width: 100%; }
-  .song-table th, .song-table td { padding: 0.4rem; }
-  .song-form { flex-direction: column; gap: 0.5rem; }
-  .song-form input, .song-form select, .song-form button { width: 100%; }
-  .navbar { flex-direction: column; gap: 0.5rem; }
-  .navbar .nav-links { justify-content: center; gap: 0.3rem; }
-}
-@media (max-width: 768px) {
+
   // Contenedor principal
   .App {
     padding: 1rem;
@@ -345,7 +335,7 @@ body {
     gap: 0.5rem;
   }
 
-  // Tabla → Cards centradas
+  // Tabla → Cards centradas y espacio entre ellas
   .table-container {
     max-height: none;
     overflow: visible;
@@ -354,8 +344,9 @@ body {
   .song-table {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; // más espacio entre cards
     width: 100%;
+    font-size: 0.85rem;
   }
 
   .song-table thead {
@@ -365,24 +356,24 @@ body {
   .song-table tr {
     display: flex;
     flex-direction: column;
-    align-items: center; // centramos contenido horizontalmente
-    text-align: center; // centramos texto
+    align-items: center;  // centrado horizontal
+    text-align: center;   // centrado del texto
     background-color: $verde-claro;
     border-radius: 1rem;
     padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    word-wrap: break-word; // previene desbordamiento
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    word-wrap: break-word;
     max-width: 100%;
     box-sizing: border-box;
   }
 
   .song-table td {
     display: flex;
-    flex-direction: column; // apila portada, título, artista, emoción
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; // apilado vertical
+    align-items: center;    // centrado horizontal
+    justify-content: center; // centrado vertical
     width: 100%;
-    padding: 0.3rem 0;
+    padding: 0.5rem 0;     // más espacio dentro de cada td
   }
 
   .song-table td img {
@@ -392,7 +383,7 @@ body {
   .song-table td:last-child {
     flex-direction: row; // botones en fila
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.7rem;        // separación entre botones
     margin-top: 0.5rem;
   }
 
